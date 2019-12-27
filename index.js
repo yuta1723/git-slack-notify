@@ -3,12 +3,17 @@ const fs = require('fs');
 const { WebClient } = require('@slack/web-api');
 const web = new WebClient(slack_config.slack_token);
 const main = async () => {
+
+  const firstArg = process.argv[2];
+  const secondArg = process.argv[3];
+
+
   // Slack send message
   const channelID = slack_config.slack_channel_id;
   await web.chat.postMessage({
     username: 'ユーザー名',
     icon_url: 'アイコンURL',
-    text: 'こちらはテストメッセージです。\n 画像URL',
+    text: '引数 = ' + firstArg + secondArg,
     channel: channelID,
     attachments: [{
       title: 'タイトル',
