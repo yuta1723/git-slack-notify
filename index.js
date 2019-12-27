@@ -1,9 +1,10 @@
+const slack_config = require('./slackConfig.js')
 const fs = require('fs');
 const { WebClient } = require('@slack/web-api');
-const web = new WebClient('トークン');
+const web = new WebClient(slack_config.slack_token);
 const main = async () => {
   // Slack send message
-  const channelID = 'チャンネルID';
+  const channelID = slack_config.slack_channel_id;
   await web.chat.postMessage({
     username: 'ユーザー名',
     icon_url: 'アイコンURL',
