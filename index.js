@@ -14,13 +14,16 @@ const main = async () => {
 
   // Slack send message
   const channelID = slack_config.slack_channel_id;
+  const userName = slack_config.slack_user_name;
+  const iconUrl = slack_config.slack_icon_url;
+
   await web.chat.postMessage({
-    username: 'ユーザー名',
-    icon_url: 'アイコンURL',
+    username: userName,
+    icon_url: iconUrl,
     // text: '引数 = ' + diff + status,
     channel: channelID,
     attachments: [{
-      title: 'git status -sb',
+      title: 'git status',
       text: '' + status,
       color: '#ffa500'
     },{
