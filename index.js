@@ -17,37 +17,17 @@ const main = async () => {
   await web.chat.postMessage({
     username: 'ユーザー名',
     icon_url: 'アイコンURL',
-    text: '引数 = ' + diff + status,
+    // text: '引数 = ' + diff + status,
     channel: channelID,
     attachments: [{
-      title: 'タイトル',
-      text: 'テキスト',
-      color: '#2eb886',
-      image_url: 'イメージURL',
-      title_link: 'タイトルURL',
-      fields: [
-        {
-          title: 'Priority1',
-          value: 'value1',
-          short: 'true',
-        },
-        {
-          title: 'Priority2',
-          value: 'value2',
-          short: 'true',
-        },
-            {
-          title: 'Priority3',
-          value: 'value3',
-          short: 'true',
-        },
-        {
-          title: 'Priority4',
-          value: 'value4',
-          short: 'true',
-        },
-      ],
-    }],
+      title: 'git status -sb',
+      text: '' + status,
+      color: '#ffa500'
+    },{
+      title: 'git diff',
+      text: '' + diff,
+      color: '#2eb886'
+    }]
   }).catch((error) => {
     console.error(error);
     process.exit(1);
